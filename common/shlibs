@@ -2773,3 +2773,4 @@ libCGAL_Core.so.12 cgal-4.9_1
 libCGAL_ImageIO.so.12 cgal-4.9_1
 libqscintilla2-qt5.so.12 qscintilla-qt5-2.9.4_1
 liblxpanel.so.0 lxpanel-0.9.3_1
+libargon2.so.0 libargon2-20161029_1

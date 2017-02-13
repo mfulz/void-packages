@@ -1,0 +1,35 @@
+# Template file for libargon2 packages
+pkgname="libargon2"
+version="20161029"
+revision=1
+build_style=gnu-makefile
+short_desc="Reference C implementation of Argon2"
+maintainer="Matthias Fulz <mfulz@olznet.de>"
+license="CC0-1"
+homepage="https://github.com/P-H-C/phc-winner-argon2"
+distfiles="https://github.com/P-H-C/phc-winner-argon2/archive/${version}.tar.gz"
+checksum="fe0049728b946b58b94cc6db89b34e2d050c62325d16316a534d2bedd78cd5e7"
+wrksrc="phc-winner-argon2-${version}"
+echo "${wrksrc}"
+
+pre_build() {
+	sed -i 's|^CFLAGS +=|override CFLAGS +=|g' Makefile
+	sed -i 's|^LDFLAGS +=|override LDFLAGS +=|g' Makefile
+}
+
+libargon2-devel_package() {
+	depends="libargon2>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove "usr/lib/*.a"
+	}
+}
+
+argon2_package() {
+	depends="libargon2>=${version}_${revision}"
+	short_desc+=" - binary tool"
+	pkg_install() {
+		vmove "usr/bin/argon2"
+	}
+}
