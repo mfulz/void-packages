@@ -2837,3 +2837,4 @@ libPocoXML.so.48 poco-1.7.8p2_1
 libPocoUtil.so.48 poco-1.7.8p2_1
 libopenblas.so.0 openblas-0.2.19_1
 librtmidi.so.3 rtmidi-2.1.1_1
+libchipcard.so.6 libchipcard-5.0.4_1
