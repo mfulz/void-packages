@@ -1,0 +1,20 @@
+# Template file for 'python-libclang'
+pkgname=python3-libclang
+version=3.9.0
+revision=1
+build_style=python3-module
+pycompile_module="libclang"
+python_version=3
+hostmakedepends="python3-setuptools"
+makedepends="python3-devel"
+short_desc="Python3 bindings for clang"
+maintainer="Matthias Fulz <mfulz@olznet.de>"
+homepage="https://bitbucket.org/Anteru/python3-libclang"
+license="custom:University of Illinois/NCSA Open Source License"
+distfiles="${PYPI_SITE}/l/libclang-py3/libclang-py3-${version}.tar.gz"
+checksum=ab1885be148303c71d35105cb55f4c370126e690458143474e9a44b4ebe05f3c
+wrksrc="libclang-py3-${version}"
+
+pre_install() {
+	vlicense "${FILESDIR}/LICENSE"
+}
