@@ -1,0 +1,6 @@
+case "${ACTION}" in
+    post)
+        mkdir -p /var/spool/lpd
+        /opt/brother/Printers/mfcj625dw/inf/setupPrintcapij mfcj625dw -i
+    ;;
+esac

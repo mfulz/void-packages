@@ -1,0 +1,28 @@
+# Template file for 'brother-dcp197c-lpr'
+pkgname=brother-mfcj625dw-lpr
+version=3.0.1
+revision=1
+maintainer="Matthias Fulz <mfulz@olznet.de>"
+homepage="http://support.brother.com/g/b/index.aspx"
+license="GPL-2"
+short_desc="LPR driver for the brother MFC-J625DW printer/scanner"
+distfiles="http://download.brother.com/welcome/dlf006606/mfcj625dwlpr-${version}-1.i386.deb"
+checksum=34d5b9094174128dfcf86ed2af4f9a3a9a7559c1b4b47f70bcd1435db8f662b3
+only_for_archs="i686 x86_64"
+create_wrksrc=yes
+depends="a2ps ghostscript"
+mutable_files="/opt/brother/Printers/mfcj625dw/inf/brmfcj625dwrc"
+nopie="yes"
+
+if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
+	depends+=" glibc-32bit"
+fi
+
+do_extract() {
+	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/mfcj625dwlpr-${version}-1.i386.deb
+}
+
+do_install() {
+	mkdir -p ${DESTDIR}
+	tar xzpvf data.tar.gz -C ${DESTDIR}
+}
