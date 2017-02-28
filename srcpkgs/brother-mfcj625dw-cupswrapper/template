@@ -1,0 +1,23 @@
+# Template file for 'brother-mfcj625dw-cupswrapper'
+pkgname=brother-mfcj625dw-cupswrapper
+version=3.0.0
+revision=1
+maintainer="Matthias Fulz <mfulz@olznet.de>"
+homepage="http://support.brother.com/g/b/index.aspx"
+license="GPL-2"
+short_desc="CUPS wrapper driver for the brother MFC-J625DW printer/scanner"
+distfiles="http://download.brother.com/welcome/dlf006608/mfcj625dwcupswrapper-${version}-1.i386.deb"
+checksum=8b7b601f348542b41df9e9b41c78d414406c41576834f4976b0aa89033a0b1ee
+only_for_archs="i686 x86_64"
+depends="brother-mfcj625dw-lpr cups cups-filters"
+create_wrksrc=yes
+nopie="yes"
+
+do_extract() {
+	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/mfcj625dwcupswrapper-${version}-1.i386.deb
+}
+
+do_install() {
+	mkdir -p ${DESTDIR}
+	tar xzpvf data.tar.gz -C ${DESTDIR}
+}
